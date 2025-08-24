@@ -21,6 +21,7 @@ The project uses **Kepler mission light curves** as test data.
 ---
 
 ## Project Structure
+```
 .
 ├── data/ # Raw and cleaned Kepler light curve data
 ├── output/ # Results: plots, tables, fitted models
@@ -47,7 +48,7 @@ The project uses **Kepler mission light curves** as test data.
 │ └── utils_errors.py
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
-
+```
 
 ---
 
