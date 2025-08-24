@@ -79,7 +79,7 @@ This project uses a minimal set of scientific Python packages:
 ```
 ---
 
-```
+
 ## Full Pipeline (from data download)
 Each module can be run independently.  
 Here is the recommended end-to-end workflow:
@@ -128,7 +128,6 @@ Here is the recommended end-to-end workflow:
    ```bash
    python -m scripts.module10_uncertainty_report
 
-```
 
 ---
 
