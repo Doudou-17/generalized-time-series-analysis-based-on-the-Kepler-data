@@ -24,7 +24,6 @@ venv/
 *.png
 *.pdf
 *.svg
-# Output text results
 *.txt
 
 # OS-specific files
