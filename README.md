@@ -104,7 +104,7 @@ Here is the recommended end-to-end workflow:
 3. **Module 2** — Prepare / clean and split by the largest gap
 
    ```bash
-   python -m scripts.module2_prepare
+   python -m scripts.module2_prepare_for_dft
    ```
 
 4. **Module 3** — Phase folding (visualisation only, not required for analysis)
