@@ -65,19 +65,26 @@ venv\Scripts\activate      # Windows
 
 pip install -r requirements.txt
 
----
-
-## Main dependencies:
-numpy, scipy, matplotlib
-astropy, lightkurve
-tqdm
-multiprocessing (standard library)
 
 ---
+### Dependencies
+
+This project uses a minimal set of scientific Python packages:
+
+- `numpy` — numerical arrays and linear algebra  
+- `scipy` — numerical methods (optimization, signal processing)  
+- `matplotlib` — plotting  
+- `astropy` — astronomical time/units handling  
+- `lightkurve` — Kepler light curve access & I/O  
+- `tqdm` — progress bars
+
+Install all dependencies with:
+
+```bash
+pip install -r requirements.txt
 
 
 ## Full pipeline (from data download)
-
 ```bash
 # 0) Download and standardize raw data (will fetch Kepler light curves to ./data)
 python -m scripts.module0_download
@@ -103,8 +110,11 @@ python -m scripts.module8_significance
 # 7) Uncertainty report
 python -m scripts.module10_uncertainty_report
 
+Note: No raw data or outputs are tracked in the repository. All inputs are downloaded by Module 0, and all figures/tables are generated into ./output/.
 
-## Example Outputs
+---
+
+### Example Outputs
 Periodograms: kurtz_periodogram_full.png, kurtz_periodogram_zoom.png
 Peak tables: kurtz_top_peaks.txt, kurtz_resid_top_peaks_with_fap.txt
 Fit results: multisine_fit_results.npz, fit_overlay_timeseries.png, fit_residual_timeseries.png
