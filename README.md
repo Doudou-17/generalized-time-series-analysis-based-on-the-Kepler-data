@@ -9,7 +9,7 @@ The project uses **Kepler mission light curves** as test data.
 ## Features (Modules)
 
 - **Module 0–2**: Data download, cleaning, and segmentation (before/after gap)
-- **Module 3**: Phase folding utilities
+- **Module 3**: Phase folding utilities (for visualisation only, not used in later computation) 
 - **Module 4**: Kurtz recursive DFT scan + spectral window analysis
 - **Module 5**: Multi-frequency sine fitting (joint LSQ fit)
 - **Module 6**: View fitted model (overlay, residuals, summary statistics)
@@ -66,60 +66,54 @@ venv\Scripts\activate      # Windows
 
 pip install -r requirements.txt
 
-
 ---
-### Dependencies
+
+## Dependencies
 
 This project uses a minimal set of scientific Python packages:
-
-- `numpy` — numerical arrays and linear algebra  
-- `scipy` — numerical methods (optimization, signal processing)  
-- `matplotlib` — plotting  
-- `astropy` — astronomical time/units handling  
-- `lightkurve` — Kepler light curve access & I/O  
-- `tqdm` — progress bars
-
-Install all dependencies with:
-
-```bash
-pip install -r requirements.txt
-
-
-## Full pipeline (from data download)
-```bash
-# 0) Download and standardize raw data (will fetch Kepler light curves to ./data)
-python -m scripts.module0_download
-
-# 1) Prepare / clean and split by the largest gap
-python -m scripts.module2_prepare
-
-# 2) Kurtz recursive DFT scan + peaks
-python -m scripts.module4_kurtz_scan
-
-# 3) Multi-sine least squares fit
-python -m scripts.module5_multi_sine_fit
-
-# 4) View model overlay + residuals
-python -m scripts.module6_view_fit
-
-# 5) Residual periodogram
-python -m scripts.module7_resid_scan
-
-# 6) Permutation-based significance (global FAP)
-python -m scripts.module8_significance
-
-# 7) Uncertainty report
-python -m scripts.module10_uncertainty_report
-
-Note: No raw data or outputs are tracked in the repository. All inputs are downloaded by Module 0, and all figures/tables are generated into ./output/.
+numpy — numerical arrays and linear algebra
+scipy — numerical methods (optimization, signal processing)
+matplotlib — plotting
+astropy — astronomical time/units handling
+lightkurve — Kepler light curve access & I/O
+tqdm — progress bars
 
 ---
 
-### Example Outputs
-Periodograms: kurtz_periodogram_full.png, kurtz_periodogram_zoom.png
-Peak tables: kurtz_top_peaks.txt, kurtz_resid_top_peaks_with_fap.txt
-Fit results: multisine_fit_results.npz, fit_overlay_timeseries.png, fit_residual_timeseries.png
-Significance plots: perm_cdf_maxpower.png, kurtz_resid_periodogram_with_thresholds.png
-Final uncertainty table: final_table.csv, sigma_nu_vs_freq.png
+## Full Pipeline (from data download)
+Each module can be run independently.
+Here is the recommended end-to-end workflow:
+```
+# Module 0) Download and standardize raw data (saves to ./data)
+python -m scripts.module0_download
 
-Note: No raw data or outputs are tracked in the repository. All inputs are downloaded by Module 0, and all figures/tables are generated into ./output/.
+# Module 1) Plot the light curve for the raw data
+python -m scripts.module1_plot_raw
+
+# Module 2) Prepare / clean and split by the largest gap
+python -m scripts.module2_prepare
+
+# Module 3) Phase folding (visualisation only, not required for analysis)
+python -m scripts.module3_phase_fold
+
+# Module 4) Kurtz recursive DFT scan + peaks
+python -m scripts.module4_kurtz_scan
+
+# Module 5) Multi-sine least squares fit
+python -m scripts.module5_multi_sine_fit
+
+# Module 6) View model overlay + residuals
+python -m scripts.module6_view_fit
+
+# Module 7) Residual periodogram
+python -m scripts.module7_resid_scan
+
+# Module 8) Permutation-based significance (global FAP)
+python -m scripts.module8_significance
+
+# Module 9) Segment comparison (before vs after)
+python -m scripts.module9_compare_segments
+
+# Module 10) Uncertainty report
+python -m scripts.module10_uncertainty_report
+```
