@@ -1,7 +1,0 @@
-numpy>=1.23
-scipy>=1.9
-matplotlib>=3.6
-astropy>=5.2
-lightkurve>=2.4
-tqdm>=4.65
-pandas>=2.0
