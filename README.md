@@ -67,7 +67,7 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 
 ---
-
+```
 ## Dependencies
 This project uses a minimal set of scientific Python packages:
 - **numpy** — numerical arrays and linear algebra
@@ -76,6 +76,7 @@ This project uses a minimal set of scientific Python packages:
 - **astropy** — astronomical time/units handling
 - **lightkurve** — Kepler light curve access & I/O
 - **tqdm** — progress bars
+```
 ---
 
 ```
@@ -126,7 +127,11 @@ Here is the recommended end-to-end workflow:
 11. **Module 10** —  Uncertainty report
    ```bash
    python -m scripts.module10_uncertainty_report
+
 ```
+
+---
+
 
 ```
 ## Example Outputs
@@ -135,5 +140,4 @@ Peak tables: kurtz_top_peaks.txt, kurtz_resid_top_peaks_with_fap.txt
 Fit results: multisine_fit_results.npz, fit_overlay_timeseries.png, fit_residual_timeseries.png
 Significance plots: perm_cdf_maxpower.png, kurtz_resid_periodogram_with_thresholds.png
 Final uncertainty table: final_table.csv, sigma_nu_vs_freq.png
-
-
+```
