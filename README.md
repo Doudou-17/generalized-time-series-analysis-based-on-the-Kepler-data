@@ -50,8 +50,8 @@ The project uses **Kepler mission light curves** as test data.
 └── README.md # Project documentation
 ```
 
----
 
+```
 ## Installation
 
 Clone the repository and set up a virtual environment:
@@ -65,8 +65,8 @@ source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 
 pip install -r requirements.txt
+```
 
----
 ```
 ## Dependencies
 This project uses a minimal set of scientific Python packages:
@@ -77,9 +77,8 @@ This project uses a minimal set of scientific Python packages:
 - **lightkurve** — Kepler light curve access & I/O
 - **tqdm** — progress bars
 ```
----
 
-
+```
 ## Full Pipeline (from data download)
 Each module can be run independently.  
 Here is the recommended end-to-end workflow:
@@ -127,9 +126,7 @@ Here is the recommended end-to-end workflow:
 11. **Module 10** —  Uncertainty report
    ```bash
    python -m scripts.module10_uncertainty_report
-
-
----
+```
 
 
 ```
