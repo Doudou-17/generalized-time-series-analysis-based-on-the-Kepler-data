@@ -25,6 +25,7 @@ venv/
 *.pdf
 *.svg
 *.txt
+!requirements.txt
 
 # OS-specific files
 .DS_Store
