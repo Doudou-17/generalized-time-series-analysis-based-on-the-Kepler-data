@@ -9,7 +9,7 @@ if ROOT not in sys.path:
 
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib.ticker as mticker
 from src.utils_compare import read_peaks_txt, direct_fr_fi, amp_phase_from_frfi, SUFFIX_MAP
 from src.utils_resid import select_data_segment, summarize_timebase
 
@@ -119,6 +119,13 @@ if rows:
     plt.xlabel('A_before (norm)'); plt.ylabel('A_after (norm)')
     plt.title('Amplitude consistency (before vs after)')
     plt.grid(True, which='both', alpha=0.3)
+
+    ax = plt.gca()
+    ax.xaxis.set_major_locator(mticker.LogLocator(base=10.0, subs=[1.0,2.0,3.0,5.0], numticks=12))
+    ax.yaxis.set_major_locator(mticker.LogLocator(base=10.0, subs=[1.0,2.0,3.0,5.0], numticks=12))
+    ax.xaxis.set_major_formatter(mticker.ScalarFormatter())
+    ax.yaxis.set_major_formatter(mticker.ScalarFormatter())
+
     plt.tight_layout(); plt.savefig(PLOT_AMP, dpi=200); plt.close()
     print(f"Saved -> {PLOT_AMP}")
 

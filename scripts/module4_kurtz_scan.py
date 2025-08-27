@@ -28,7 +28,7 @@ OUT_DIR    = "./output"
 ## [Adjustable] full: highest resolution, but window sidelobes more complex; 
 ## [Adjustable] before/after: lower resolution, but cleaner window.
 ## This directly affects Rayleigh resolution and window function structure.
-DATA_SOURCE = 'after'
+DATA_SOURCE = 'full'
 
 # Frequency bands (manual specification): (fmin_μHz, fmax_μHz, S=oversampling per Rayleigh)
 ## Larger S → smaller step size, slower computation, higher accuracy for peak interpolation.
@@ -39,8 +39,8 @@ DATA_SOURCE = 'after'
 ## [Kurtz/DFT relevance] MIN_SEP_BINS × Δν corresponds to the physical minimum peak separation threshold.
 ## Current manual band configuration
 FREQ_BANDS = [
-    (1.0,   5.0,   10.0),   
-    (5.0,   50.0,   10.0),   
+    (0.58,   5.0,   6.0),   
+    (5.0,   50.0,   8.0),   
     (50.0, 8000.0, 12.0),   
 ]
 ## Frequency bands for full segment.
